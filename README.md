@@ -5,7 +5,7 @@
 
 # Automatic Wsl Configuration and Stable Diffuion Webui Installation  
 
-This project is ONly for me to. it has no value to anyone else... But if it can help you, be my guest and feel free to use.
+This project is for my use ONLY. It has no value to anyone else... But if it can help you, be my guest and feel free to use.
 
 Some changes to the code might be needed for it to work for you... 
 I've made it so it will work on my PC, with my current setup - "WSL debian distribution".
@@ -18,7 +18,9 @@ I do not plan on making this script adaptable for others... But who knows I migh
 - You need to input the same UserName that you entered earlier... and as a said above, the password is not needed yet, so you can put in anything in this field.
 
 ## Requirements
-- None,  but here is a ref worth looking at --> https://learn.microsoft.com/en-us/windows/wsl/install
+- Here is a ref worth looking at --> https://learn.microsoft.com/en-us/windows/wsl/install
+- You need windows and Wsl working properly
+- You also need admin rights on your PC
 
 ## Contributing
 
