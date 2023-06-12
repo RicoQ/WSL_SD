@@ -1,5 +1,5 @@
 <a href="https://github.com/RicoQ/WSL_SD">
-    <img src="./.icon_source/Gnu-bash-logo.svg.png" alt="Bash logo" title="BASH" align="center" height="100" /> 
+    <img src=".icon_source/Gnu-bash-logo.svg.png" alt="Bash logo" title="BASH" align="center" height="100" /> 
 </a>
 
 
@@ -21,6 +21,41 @@ I do not plan on making this script adaptable for others... But who knows I migh
 - Here is a ref worth looking at --> https://learn.microsoft.com/en-us/windows/wsl/install
 - You need windows and Wsl working properly
 - You also need admin rights on your PC
+- You also need to anable a few restrictions within PowerShell
+
+## How it works.
+- Enter a Distribution Name 
+    - (To help you choose you can use the "Show List")
+- "Install WSL" button will install the required tools for WSL and Install the Distibution you entered above
+    - (Once done you need to do "exit" in the terminal to close the window)
+- Enter the Username 
+    - (must be the same that you used when installing the Distribution)
+- Enter the User Password 
+    - (Right now, this does nothing but you still need to enter something)
+- "Copy Config Files" copies the needed config files where they need to go. 
+    - (Those config files are for my PC and might need to be changed according to your spesifications)
+- "Install SD" configues a few things I find useful on the WSL and installs Stable Diffusion webui 
+    - (Right now you this button Runs an instance of your wsl distribution)
+    - You will need to Run a few commands to install everything, I ran into a few errros when runing a script bash from PowerShell.
+    - To Workaround this I wrote one Script that wil do everything. 
+    - Type in the 2 following commands into the wsl terminal.
+
+```
+sudo chmod +x ./Prep.sh
+bash ./Prep.sh
+```
+
+## To launch SD 
+- There a 4 arguments possible:
+    - no option             Simply run Stable Diffusion
+	- --update, -U          Updates everything (i.e., SD, all extensions, and the Conda Environment)
+	- --lama, -L            Updates only the Lama Cleaner app and starts it (not used with -R, -U)
+	- --reinstall, -R       Reinstall Torch & Xformer (and also starts SD)
+    - --help, -H, -h        Shows this help text"
+
+```
+bash ~/Start_SD.sh 
+```
 
 ## Contributing
 
