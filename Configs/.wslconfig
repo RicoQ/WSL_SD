@@ -1,0 +1,28 @@
+# Settings apply across all Linux distros running on WSL 2
+# Can see memory in wsl2 with "free -m"
+# Goes in windows home directory as .wslconfig
+[wsl2]
+
+# Limits VM memory to use no more than 48 GB
+memory=48GB
+
+# Sets the VM to use 10 virtual processors
+processors=12
+
+# Sets the amount of swap storage space to 24GB
+swap=24GB
+
+# Sets swapfile path location, default is %USERPROFILE%\AppData\Local\Temp\swap.vhdx
+#swapfile=C:\\temp\\wsl-swap.vhdx
+
+# Disable page reporting so WSL retains all allocated memory claimed from Windows and releases none back when free
+#pageReporting=true
+
+# Turn off default connection to bind WSL 2 localhost to Windows localhost
+localhostforwarding=true
+
+# Disables nested virtualization
+nestedVirtualization=true
+
+# Turns on output console showing contents of dmesg when opening a WSL 2 distro for debugging
+debugConsole=true
