@@ -1,12 +1,9 @@
 #!/bin/bash
 
-# Clone Stable Diffusion Web UI Repo
-git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
-
 function Install_SD() {
     # Create conda environment (Run this command in the "stable-diffusion-webui" folder)
-    cd stable-diffusion-webui/
-    conda env create -f environment-wsl2.yaml
+    
+    conda env create -f ~/stable-diffusion-webui/environment-wsl2.yaml
 
     # Activate conda environment
     conda activate automatic
@@ -33,9 +30,14 @@ function Install_SD() {
     conda install cuda -c nvidia
 
     # Install the requirements
-    pip install -r requirements.txt
+    pip install -r ~/stable-diffusion-webui/requirements.txt
     exit
 }
+
+printf "\n #####################\n #   Installing SD   # \n #####################\n\n"
+
+# Clone Stable Diffusion Web UI Repo
+#git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
 
 Install_SD
 
@@ -43,13 +45,11 @@ Install_SD
 wget -O ./stable-diffusion-webui/models/Stable-diffusion https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.safetensors
 wget -O ./stable-diffusion-webui/models/Stable-diffusion https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned.safetensors
 
-# Preparing The SD.sh script 
-mv ~/SD.sh ~/stable-diffusion-webui
-chmod +x ~/SD.sh
-
 # Add WSL to path
-echo 'export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH' >> ~/.zshrc
+echo 'export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
+#echo 'export LD_LIBRARY_PATH=/usr/lib/wsl/lib:$LD_LIBRARY_PATH' >> ~/.zshrc
 
 # Restart Terminal
-source ~/.zshrc
+source ~/.bachrc
+#source ~/.zshrc
 exit

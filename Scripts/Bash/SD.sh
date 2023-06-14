@@ -2,18 +2,18 @@
 
 # Function Update and Run Lama_cleaner
 run_lama() {
-	if [ ! -d "./lama-cleaner" ]; then
+	if [ ! -d "~/lama-cleaner" ]; then
 		msg "Did not Find lama-cleaner"
 		msg "Installing lama now" 
 		git pull https://github.com/Sanster/lama-cleaner.git
     fi
     msg "Lama-Cleaner"
 	echo "Updating Lama-cleaner (Git Pull)"
-	lama_folder="./lama-cleaner"
+	lama_folder="~/lama-cleaner"
 	git_pull "$lama_folder"
 
 	echo "Updating Requirements for Lama-Cleaner"
-	lama_file="./lama-cleaner/requirements.txt"
+	lama_file="~/lama-cleaner/requirements.txt"
 	pip install -r "$lama_file"
 
     echo ""
@@ -46,12 +46,12 @@ conda_env() {
 
     msg "Stable Diffusion"
 	echo "Updating all SD extensions"
-	ext_folder="./extensions"
-	git_pull "$ext_folder"
+	ext_folder="~/stable-diffusion-webui/extensions"
+	git_pull $ext_folder
 
 	echo "Updating SD"
-	file="./requirements.txt"
-	pip install -r "$file"
+	file="~/stable-diffusion-webui/requirements.txt"
+	pip install -r $file
 	git pull
     
     if [[ $1 == "R" ]]; then
@@ -93,7 +93,7 @@ run_sd() {
 	echo ""
 	echo "########## Starting Stable Diffusion ##########"
 	echo ""
-	python launch.py --api --lowvram --xformers --disable-nan-check --disable-safe-unpickle --no-half --no-half-vae --update-check #--skip-torch-cuda-test
+	python ~/stable-diffusion-webui/launch.py --api --lowvram --xformers --disable-nan-check --disable-safe-unpickle --no-half --no-half-vae --update-check #--skip-torch-cuda-test
 }
 
 # Run Stable Diffusion without updates
@@ -110,7 +110,7 @@ main() {
     echo ""
 	echo "########## Starting Stable Diffusion ##########"
 	echo ""
-	python launch.py --api --lowvram --xformers --disable-nan-check --disable-safe-unpickle --no-half --no-half-vae --update-check --skip-torch-cuda-test
+	python ~/stable-diffusion-webui/launch.py --api --lowvram --xformers --disable-nan-check --disable-safe-unpickle --no-half --no-half-vae --update-check --skip-torch-cuda-test
     exit
 }
 
@@ -164,7 +164,7 @@ help_msg() {
 # Function to reinstall Torch & Xformer
 reinstall() {
 	msg "Reinstalling Torch & Xformer / starting SD"
-	python launch.py --reinstall-xformers --reinstall-torch --lowvram --xformers --disable-nan-check --disable-safe-unpickle --no-half --no-half-vae --update-check #--skip-torch-cuda-test
+	python ~/stable-diffusion-webui/launch.py --reinstall-xformers --reinstall-torch --lowvram --xformers --disable-nan-check --disable-safe-unpickle --no-half --no-half-vae --update-check #--skip-torch-cuda-test
 	exit
 }
 

@@ -1,5 +1,5 @@
 <a href="https://github.com/RicoQ/WSL_SD">
-    <img src=".icon_source/Gnu-bash-logo.svg.png" alt="Bash logo" title="BASH" align="center" height="100" /> 
+    <img src=".Gnu-bash-logo.svg.png" alt="Bash logo" title="BASH" align="center" height="100" /> 
 </a>
 
 

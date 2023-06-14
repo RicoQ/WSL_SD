@@ -5,10 +5,11 @@ function conda() {
    sudo apt-get install -y python3 wget nano git python3-pip
 
    # Download Anaconda
-   wget -O /tmp/Anaconda3-2023.03-Linux-x86_64.sh https://repo.continuum.io/archive/Anaconda3-2023.03-Linux-x86_64.sh
+   # see https://repo.anaconda.com/archive/ (for updates)
+   wget -O /tmp/Anaconda3.sh https://repo.anaconda.com/archive/Anaconda3-2023.03-1-Linux-x86_64.sh
 
    # Install Anaconda
-   bash /tmp/Anaconda3-2023.03-Linux-x86_64.sh
+   bash /tmp/Anaconda3.sh
 }
 
 conda

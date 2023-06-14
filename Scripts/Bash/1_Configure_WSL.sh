@@ -5,9 +5,11 @@ echo "$USER ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
 
 # Add the following to ~/.bashrc
 echo 'source ~/.aliases' >> ~/.bashrc
-echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
+echo 'export PATH=$HOME/bin:/usr/local/bin:$PATH' >> ~/.bashrc
+echo 'export EDITOR=nano' >> ~/.bashrc
 
-# Add the following to ~/.aliases^M$
+# Add the following to ~/.aliases
 cat > ~/.aliases << END
 ## Custom Aliases
 
@@ -66,37 +68,40 @@ alias python='python3'
 alias Python='sudo python'
 END
 
-# Install necessary utilities
-#sudo apt-get install -y aptitude
-sudo apt-get install -y ifupdown ufw htop net-tools ncdu wget ltrace python2.7 curl nano pkg-config inxi dkms build-essential git python3 python3-venv pkg-config screen python3-pip zsh
+# Install aptitude
+sudo apt-get install -y aptitude
 
-# Add the following to ~/.bashrc
+# source ~/.bashrc
 source ~/.bashrc
 
+# Install all the necessary tools
+Install -y ifupdown ufw htop net-tools ncdu wget ltrace python2.7 curl nano pkg-config inxi dkms build-essential git python3 python3-venv pkg-config screen python3-pip
+
 # Install "Oh My Zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#Install zsh
+#sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Install PowerLevel10k theme
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \${ZSH_CUSTOM:-\$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
-# Configure ~/.zshrc
-sed -i 's/^export PATH=$HOME\/bin:\/usr\/local\/bin:$PATH$/&\nsource ~/.aliases\nexport EDITOR=nano\nexport PATH=$HOME\/.local\/bin:$PATH\n/' ~/.zshrc
+#git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
 
 # Comment the following line (ZSH_THEME)
-sed 's/^ZSH_THEME="robbyrussell"/#ZSH_THEME="robbyrussell"/g' ~/.zshrc
+#sed 's/^ZSH_THEME="robbyrussell"/#ZSH_THEME="robbyrussell"/g' ~/.zshrc
 # Then add the ZSH_THEME we want right after it
-sed '/^#ZSH_THEME="robbyrussell"/a ZSH_THEME="powerlevel10k/powerlevel10k"' ~/.zshrc
+#sed '/^#ZSH_THEME="robbyrussell"/a ZSH_THEME="powerlevel10k/powerlevel10k"' ~/.zshrc
 
 # Add The Folowinf 3 lines at the End of ~/.zshrc
-printf "
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-source ~/.aliases
-export EDITOR=nano
-export PATH=$HOME/.local/bin:$PATH
-" >> ~/.zshrc
+#printf "
+#export PATH=$HOME/bin:/usr/local/bin:$PATH
+#source ~/.aliases
+#export EDITOR=nano
+#export PATH=$HOME/.local/bin:$PATH
+#" >> ~/.zshrc
+
+# source ~/.zshrc
+#source ~/.zshrc
 
 # Run the PowerLevel10k theme
-source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
+#source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 # Restart WSL
 #echo "Restarting WSL..."

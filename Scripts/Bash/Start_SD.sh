@@ -1,8 +1,9 @@
 #!/bin/bash
 
 run() {
-    cd ./stable-diffusion-webui/
-    ./SD.sh $1
+   #cd ~/stable-diffusion-webui/
+   #./SD.sh $1
+   bash ~/stable-diffusion-webui/SD.sh $1
 }
 
 # Function to handle command line arguments and initialize variables
