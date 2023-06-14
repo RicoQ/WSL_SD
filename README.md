@@ -64,4 +64,4 @@ bash ~/Start_SD.sh
     * https://www.linkedin.com/in/eric-quercia/
 
 ## License
-TBD
+TBD.
